@@ -17,6 +17,7 @@ public class CharController : MonoBehaviour
     private float m_currentHealth = 0.0f;
 
     // SERIALIZE FIELDS
+    [Header("Movement References")]
     [SerializeField] private PlayerInput m_playerInput = null;
     [SerializeField] private HumanMovement m_humanMovement = null;
     [SerializeField] private BoxRobotMovement m_boxRobotMovement = null;
