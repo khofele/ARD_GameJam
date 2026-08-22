@@ -41,6 +41,14 @@ public class HammerRobotMovement : CharMovement
         }
     }
 
+    private void OnExecuteHackingHammerRobot(InputValue _value)
+    {
+        if (_value.isPressed == true)
+        {
+            HackingManager.Instance.ExecuteHacking();
+        }
+    }
+
     private void Attack(bool _isAttackLeft)
     {
         if(m_attackCooldownTimer > 0.0f)
