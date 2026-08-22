@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     private GameStates m_currentGameState = GameStates.PAUSED;
 
+    public GameStates CurrentGameState { get; }
+
     public static GameManager Instance
     {
         get; private set;
