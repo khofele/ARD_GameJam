@@ -5,15 +5,14 @@ public class HammerRobotEnemy : Enemy
 {
     private const float m_detectionRange = 10.0f; // TODO balance values
     private const float m_attackRange = 2.0f;
-    private const float m_chaseDuration = 5.0f;
 
     private HammerRobotStates m_currentHammerRobotState = HammerRobotStates.PATROL;
     private int m_currentPathIndex = 0;
-    private float m_chaseTimer = 0.0f;
 
+    [Header("Hammer Robot References")]
     [SerializeField] private NavMeshAgent m_navAgent = null;
-    [SerializeField] private Transform[] m_path = null;
     [SerializeField] private CharController m_charController = null;
+    [SerializeField] private Transform[] m_path = null;
 
     private void ExecuteEnemyBehavior()
     {
@@ -33,10 +32,38 @@ public class HammerRobotEnemy : Enemy
         }
     }
 
+    private bool IsCharacterInVisibleAngle()
+    {
+        Vector3 directionToChar = m_charController.transform.position - transform.position;
+        float distanceToChar = CalculateCharacterDistance();
+
+        if (distanceToChar > m_detectionRange)
+        {
+            return false;
+        }
+
+        directionToChar.Normalize();
+
+        float angleEnemyChar = Vector3.Angle(transform.forward, directionToChar);
+
+        if(angleEnemyChar <= 90.0f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private float CalculateCharacterDistance()
+    {
+        return Vector3.Distance(transform.position, m_charController.transform.position);
+    }
     // PATROL ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void Patrol()
     {
-        if(IsCharacterInVisibleRange() == true)
+        if(IsCharacterInVisibleAngle() == true)
         {
             StartChasing();
             return;
@@ -78,28 +105,16 @@ public class HammerRobotEnemy : Enemy
     // CHASE ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void Chase()
     {
-        // chase timer
-        if(IsCharacterInVisibleRange() == true)
+        if(IsCharacterInVisibleAngle() == false)
         {
-            // chase while char in range
-            m_chaseTimer = m_chaseDuration;
-        }
-        else
-        {
-            m_chaseTimer -= Time.deltaTime;
-        }
-
-        // attack if char in range
-        if(CalculateCharacterDistance() <= m_attackRange)
-        {
-            StartAttacking();
+            StartPatroling();
             return;
         }
 
-        // start patroling if char not in range
-        if(m_chaseTimer <= 0.0f)
+        // attack if char in range and in sight
+        if(CalculateCharacterDistance() <= m_attackRange && IsCharacterInVisibleAngle() == true)
         {
-            StartPatroling();
+            StartAttacking();
             return;
         }
 
@@ -111,28 +126,7 @@ public class HammerRobotEnemy : Enemy
     private void StartChasing()
     {
         m_currentHammerRobotState = HammerRobotStates.CHASE;
-
-        m_chaseTimer = m_chaseDuration;
         m_navAgent.isStopped = false;
-    }
-
-    private bool IsCharacterInVisibleRange()
-    {
-        float distanceToChar = CalculateCharacterDistance();
-
-        if(distanceToChar <= m_detectionRange)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    private float CalculateCharacterDistance()
-    {
-        return Vector3.Distance(transform.position, m_charController.transform.position);
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // ATTACK ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -140,9 +134,16 @@ public class HammerRobotEnemy : Enemy
     {
         m_navAgent.isStopped = true;
 
-        if(CalculateCharacterDistance() > m_attackRange)
+        if(CalculateCharacterDistance() > m_attackRange && IsCharacterInVisibleAngle() == true)
         {
             StartChasing();
+            return;
+        }
+
+        if(IsCharacterInVisibleAngle() == false)
+        {
+            StartPatroling();
+            return;
         }
 
         Debug.Log("Attack");
@@ -164,6 +165,13 @@ public class HammerRobotEnemy : Enemy
 
     private void Update()
     {
-        ExecuteEnemyBehavior();
+        if(GameManager.Instance.CurrentGameState == GameStates.RUNNING)
+        {
+            ExecuteEnemyBehavior();
+        }
+        else if(GameManager.Instance.CurrentGameState == GameStates.HACKING)
+        {
+            m_navAgent.isStopped = true;
+        }
     }
 }
