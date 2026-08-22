@@ -34,6 +34,8 @@ public class CharController : MonoBehaviour
         m_currentCharState = _newCharState;
         m_playerInput.SwitchCurrentActionMap(GetCurrentPlayerInputMap());
         m_currentMovement = GetCurrentStateMovement();
+
+        Debug.Log("Char State changed to " + _newCharState);
     }
 
     private void Awake()
