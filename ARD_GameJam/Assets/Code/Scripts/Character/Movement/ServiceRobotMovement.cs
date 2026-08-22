@@ -88,7 +88,7 @@ public class ServiceRobotMovement : CharMovement
     {
         if (m_executeHackInActRef.action.IsPressed())
         {
-            HackingManager.Instance.ExecuteHacking();
+            HackingManager.Instance.TriggerHacking();
         }
     }
 

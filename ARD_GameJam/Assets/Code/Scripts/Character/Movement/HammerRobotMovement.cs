@@ -45,7 +45,7 @@ public class HammerRobotMovement : CharMovement
     {
         if (_value.isPressed == true)
         {
-            HackingManager.Instance.ExecuteHacking();
+            HackingManager.Instance.TriggerHacking();
         }
     }
 

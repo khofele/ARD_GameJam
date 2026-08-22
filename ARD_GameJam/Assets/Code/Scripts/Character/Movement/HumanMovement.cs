@@ -25,7 +25,7 @@ public class HumanMovement : CharMovement
     {
         if(_value.isPressed == true)
         {
-            HackingManager.Instance.ExecuteHacking();
+            HackingManager.Instance.TriggerHacking();
         }
     }
 
