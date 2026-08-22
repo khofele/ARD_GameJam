@@ -1,15 +1,17 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public abstract class Enemy : MonoBehaviour
 {
     protected float m_maxHealth = 100.0f;
     protected float m_currentHealth = 0.0f;
     protected float m_lidThreshold = 0.2f;
-    protected bool m_isWeakeningNeeded = false;
     protected bool m_isLidOpenable = false;
     protected bool m_isLidOpen = false;
 
-    protected void Start()
+    [SerializeField] protected bool m_isWeakeningNeeded = false;
+
+    protected virtual void Start()
     {
         m_currentHealth = m_maxHealth;
     }
@@ -40,6 +42,4 @@ public abstract class Enemy : MonoBehaviour
             m_isLidOpenable = false;
         }
     }
-
-    protected abstract void UpdateMovement();
 }
