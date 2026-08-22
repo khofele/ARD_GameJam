@@ -131,8 +131,38 @@
             "actions": [
                 {
                     "name": "MoveHammerRobot",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "c744f365-d974-4bc3-8e7a-890db6940ac5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "LookHammerRobot",
+                    "type": "Value",
+                    "id": "6cb16a51-3f67-40a6-b21f-545e6e545dae",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "AttackLeftHammerRobot",
+                    "type": "Button",
+                    "id": "5d5120da-7362-4c16-be5e-5abccfa82a6a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "AttackRightHammerRobot",
+                    "type": "Button",
+                    "id": "6a5a03a0-39d2-4621-a089-3e3d701003bc",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -142,13 +172,90 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "a87ef665-b92b-4985-ab73-e52f7cfc3466",
-                    "path": "",
+                    "name": "2D Vector",
+                    "id": "696c878e-ed0f-4f6c-a9be-f07be9950a40",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "MoveHammerRobot",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "fedac0e4-d640-4613-9bd4-97203b538577",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "e983ae26-1ec1-4d44-abe2-f7053c4ad29d",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "79861c36-d291-43a7-9444-6fcd9897155c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "60799849-90d4-4cd9-a3a0-81ef3d2f3154",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d08a756d-c51a-4e73-b001-82c2f7390db6",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ef0fa821-08fd-4267-97c0-9bb2ddc35baa",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackLeftHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c89b53a2-42bc-4d5f-88f8-d85e4bad0cf0",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackRightHammerRobot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
