@@ -12,10 +12,12 @@ public class UIManager : MonoBehaviour
     public GameObject hammerRobotOverlay;
     public GameObject serviceRobotOverlay;
 
+    public TextMeshProUGUI m_txtTimer = null;
+
     [Header("Hacking UI References")]
     public GameObject m_hackingOverlay = null;
-    public TextMeshProUGUI m_hackingText = null;
-    public TextMeshProUGUI m_hackingTimer = null;
+    public TextMeshProUGUI m_txtHackingBinding = null;
+    public TextMeshProUGUI m_txtHackingTimer = null;
 
     public static UIManager Instance
     {
@@ -33,6 +35,11 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        SetUIState(UIStates.NONE);
+    }
+
     public void SetUIState(UIStates newUIState)
     {
         switch (newUIState)
@@ -42,31 +49,35 @@ public class UIManager : MonoBehaviour
                 hammerRobotOverlay.SetActive(false);
                 serviceRobotOverlay.SetActive(false);
                 m_hackingOverlay.SetActive(false);
+                m_txtTimer.enabled = false;
                 break;
             case UIStates.BOXROBOT:
                 boxRobotOverlay.SetActive(true);
                 hammerRobotOverlay.SetActive(false);
                 serviceRobotOverlay.SetActive(false);
                 m_hackingOverlay.SetActive(false);
+                m_txtTimer.enabled = true;
                 break;
             case UIStates.HAMMERROBOT:
                 boxRobotOverlay.SetActive(false);
                 hammerRobotOverlay.SetActive(true);
                 serviceRobotOverlay.SetActive(false);
                 m_hackingOverlay.SetActive(false);
+                m_txtTimer.enabled = true;
                 break;
             case UIStates.SERVICEROBOT:
                 boxRobotOverlay.SetActive(false);
                 hammerRobotOverlay.SetActive(false);
                 serviceRobotOverlay.SetActive(true);
                 m_hackingOverlay.SetActive(false);
+                m_txtTimer.enabled = true;
                 break;
             case UIStates.HACKING:
-                // TODO implement
                 boxRobotOverlay.SetActive(false);
                 hammerRobotOverlay.SetActive(false);
                 serviceRobotOverlay.SetActive(false);
                 m_hackingOverlay.SetActive(true);
+                m_txtTimer.enabled = false;
                 break;
         }
         m_currentUIState = newUIState;
@@ -103,8 +114,8 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        m_hackingText.text = "Press " + HackingManager.Instance.RequiredBinding.BindingInputActionReference.action.name;
-        m_hackingTimer.text = HackingManager.Instance.HackingTimer.ToString("F3");
+        m_txtHackingBinding.text = "Press " + HackingManager.Instance.RequiredBinding.BindingInputActionReference.action.name;
+        m_txtHackingTimer.text = HackingManager.Instance.HackingTimer.ToString("F3");
     }
 
     private void Update()
@@ -117,6 +128,11 @@ public class UIManager : MonoBehaviour
         if(GameManager.Instance.CurrentGameState == GameStates.GAMEOVER)
         {
             SetUIState(UIStates.NONE);
+        }
+
+        if(m_currentUIState != UIStates.HACKING && m_currentUIState != UIStates.NONE)
+        {
+            m_txtTimer.text = Timer.Instance.TimerValue.ToString("F3");
         }
     }
 }
