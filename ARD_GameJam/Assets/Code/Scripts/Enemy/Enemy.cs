@@ -3,13 +3,24 @@ using UnityEngine.AI;
 
 public abstract class Enemy : MonoBehaviour
 {
-    protected float m_maxHealth = 100.0f;
     protected float m_currentHealth = 0.0f;
-    protected float m_lidThreshold = 0.2f;
     protected bool m_isLidOpenable = false;
-    protected bool m_isLidOpen = false;
 
+    [Header("General Enemy Settings")]
+    [SerializeField] protected CharStates m_correspondingCharState = CharStates.DEFAULT_HUMAN;
     [SerializeField] protected bool m_isWeakeningNeeded = false;
+    [SerializeField] protected float m_lidThreshold = 0.2f;
+    [SerializeField] protected float m_maxHealth = 100.0f;
+
+    public bool IsLidOpenable
+    {
+        get { return m_isLidOpenable; }
+    }
+
+    public CharStates CorrespondingCharState
+    {
+        get { return m_correspondingCharState; }
+    }
 
     protected virtual void Start()
     {
@@ -18,19 +29,21 @@ public abstract class Enemy : MonoBehaviour
 
     protected void OnTriggerEnter(Collider other) // TODO child classes/prefabs need trigger!!
     {
-        if(other.gameObject.GetComponent<CharController>() != null)
+        if (other.gameObject.GetComponent<CharController>() != null)
         {
             if (m_isWeakeningNeeded == true)
             {
                 if (m_currentHealth <= m_maxHealth * m_lidThreshold)
                 {
-                    m_isLidOpenable = true; // TODO Lid can be opened --> display Button, player needs to press E or so --> set isLidOpen = true --> Starts Minigame, stops enemy ai
-                    // TODO maybe: add property for corresponding char state after hacking
+                    m_isLidOpenable = true; // TODO Lid can be opened --> display E-Button (UI-Component, referenced in Enemy class) --> Starts Minigame
+                    HackingManager.Instance.SetCurrentHackableEnemy(this);
                 }
             }
             else
             {
                 m_isLidOpenable = true;
+                HackingManager.Instance.SetCurrentHackableEnemy(this);
+                Debug.Log("Lid Openable");
             }
         }
     }
@@ -40,6 +53,7 @@ public abstract class Enemy : MonoBehaviour
         if (other.gameObject.GetComponent<CharController>() != null)
         {
             m_isLidOpenable = false;
+            Debug.Log("Lid Not Openable");
         }
     }
 }
