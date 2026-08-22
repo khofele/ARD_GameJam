@@ -5,5 +5,6 @@ public enum UIStates
     NONE,
     BOXROBOT,
     HAMMERROBOT,
-    SERVICEROBOT
+    SERVICEROBOT,
+    HACKING
 }
