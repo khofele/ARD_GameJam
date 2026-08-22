@@ -3,9 +3,12 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    private GameStates m_currentGameState = GameStates.PAUSED;
+    private GameStates m_currentGameState = GameStates.RUNNING;
 
-    public GameStates CurrentGameState { get; }
+    public GameStates CurrentGameState 
+    { 
+        get { return m_currentGameState; } 
+    }
 
     public static GameManager Instance
     {
