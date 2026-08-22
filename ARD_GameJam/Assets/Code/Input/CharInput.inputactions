@@ -1,0 +1,188 @@
+{
+    "version": 1,
+    "name": "CharInput",
+    "maps": [
+        {
+            "name": "Default_Human",
+            "id": "2a56ad43-a7c8-45c1-9cb2-4e9d642ceeb4",
+            "actions": [
+                {
+                    "name": "MoveHuman",
+                    "type": "Value",
+                    "id": "f23c62a1-8d36-4973-993e-dfd22e61564c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "LookHuman",
+                    "type": "Value",
+                    "id": "34cf79ea-352a-4e81-ae4d-7018f941c04c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "12b45b97-263a-4294-9871-1043730e22f1",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHuman",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "030e6068-dbc1-4b8a-b1fc-4648d672f89c",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHuman",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "53192b37-ed56-4c93-b29b-ab4a15bac80c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHuman",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "1d8ffce7-a0f7-4ebe-83c7-d8ceb57d11fe",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHuman",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c18707d9-685f-4c7d-81df-9cc0ae879fa3",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHuman",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "a97ff04d-e2cc-47dc-8fb7-39f227aa37fb",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookHuman",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Box_Robot",
+            "id": "b99863ce-094f-430c-94a7-86eb03fd3697",
+            "actions": [
+                {
+                    "name": "MoveBoxRobot",
+                    "type": "Button",
+                    "id": "8a8232de-7be0-423b-a086-2be8add3dee5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "67cfe2df-630a-4d6a-bda0-d0bc0985cd19",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveBoxRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Hammer_Robot",
+            "id": "68ba4bb6-a796-4a4e-9dfa-599254d306ba",
+            "actions": [
+                {
+                    "name": "MoveHammerRobot",
+                    "type": "Button",
+                    "id": "c744f365-d974-4bc3-8e7a-890db6940ac5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a87ef665-b92b-4985-ab73-e52f7cfc3466",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Service_Robot",
+            "id": "adbca501-6279-4468-9af1-8c074f152729",
+            "actions": [
+                {
+                    "name": "MoveServiceRobot",
+                    "type": "Button",
+                    "id": "0a6138e0-cc71-4a19-84bb-25aae74f15e8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "94e36f49-18f8-47a9-9140-0e5edd27d1a7",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveServiceRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
