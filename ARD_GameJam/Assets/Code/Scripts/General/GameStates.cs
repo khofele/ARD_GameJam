@@ -3,5 +3,6 @@ using UnityEngine;
 public enum GameStates
 {
     RUNNING,
-    PAUSED
+    PAUSED,
+    GAMEOVER
 }
