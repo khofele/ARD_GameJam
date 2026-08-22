@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2390111021349568177}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6542, y: 1, z: 0.63724005}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 5081601932239692329}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6542, y: 0, z: -0.63724005}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -297,6 +297,7 @@ MonoBehaviour:
   m_turnRightInActRef: {fileID: 4009649362146058263, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
   m_reverseInActRef: {fileID: -885490413898214670, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
   m_lookInActRef: {fileID: -6431195963513148144, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
+  m_executeHackInActRef: {fileID: -5073812065710867745, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
   m_maxNick: 90
   m_minNick: -90
   m_degPerSec: 30
@@ -334,6 +335,7 @@ MonoBehaviour:
   m_maxSpeed: 10
   m_lookInActRef: {fileID: 2879961777533538743, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
   m_chargeSpeedInActRef: {fileID: -7984936770564141363, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
+  m_executeHackInActRef: {fileID: 5949968352997503093, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
   m_maxNick: 90
   m_minNick: -90
   m_degPerSec: 30
