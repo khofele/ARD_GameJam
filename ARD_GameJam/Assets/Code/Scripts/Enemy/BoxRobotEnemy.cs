@@ -8,7 +8,6 @@ public class BoxRobotEnemy : Enemy
     [Header("Box Robot References")]
     [SerializeField] private NavMeshAgent m_navAgent = null;
     [SerializeField] private bool m_isFollowingCharacter = false; // set true if box robot should follow char, set false if box robot should follow a set path
-    [Tooltip("Only relevant when robot follows character")] [SerializeField] private CharController m_charController = null;
     [Tooltip("Only relevant when robot follows a set path")] [SerializeField] private Transform[] m_path = null;
 
     private void Move()
@@ -33,7 +32,7 @@ public class BoxRobotEnemy : Enemy
         }
         else
         {
-            m_navAgent.SetDestination(m_charController.transform.position);
+            m_navAgent.SetDestination(CharController.Instance.transform.position);
         }
     }
 
