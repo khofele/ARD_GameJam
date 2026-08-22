@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public void SetGameState(GameStates _newGameState)
     {
         m_currentGameState = _newGameState;
+
+        Debug.Log("Game State changed to " + _newGameState);
     }
 
     private void Awake()
