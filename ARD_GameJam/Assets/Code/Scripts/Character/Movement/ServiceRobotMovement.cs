@@ -23,6 +23,7 @@ public class ServiceRobotMovement : CharMovement
 
     public InputActionReference m_lookInActRef;
     public InputActionReference m_chargeSpeedInActRef;
+    public InputActionReference m_executeHackInActRef;
 
     private float m_gier = 0f;
     private float m_nick = 0f;
@@ -82,20 +83,32 @@ public class ServiceRobotMovement : CharMovement
         transform.localRotation = Quaternion.AngleAxis(m_gier, Vector3.up);
         m_robotHead.transform.localRotation = Quaternion.AngleAxis(m_nick, Vector3.right);
     }
+
+    private void ExecuteHacking()
+    {
+        if (m_executeHackInActRef.action.IsPressed())
+        {
+            HackingManager.Instance.ExecuteHacking();
+        }
+    }
+
     public override void UpdateMovement()
     {
         Move();
         Look();
+        ExecuteHacking();
     }
 
     private void OnEnable()
     {
         m_lookInActRef.action.Enable();
         m_chargeSpeedInActRef.action.Enable();
+        m_executeHackInActRef.action.Enable();
     }
     private void OnDisable()
     {
         m_lookInActRef.action.Disable();
         m_chargeSpeedInActRef.action.Disable();
+        m_executeHackInActRef.action.Disable();
     }
 }
