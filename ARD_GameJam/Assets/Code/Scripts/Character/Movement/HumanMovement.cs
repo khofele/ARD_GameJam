@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class HumanMovement : CharMovement
 {
-    private const float m_charSpeed = 5.0f;
+    private const float m_charSpeed = 0.45f;
 
     private Vector2 m_humanMoveInput = Vector2.zero;
     private Vector2 m_humanLookInput = Vector2.zero;
@@ -39,7 +39,7 @@ public class HumanMovement : CharMovement
 
     private void Look()
     {
-        transform.Rotate(Vector3.up * m_humanLookInput.x * 0.5f); // TODO balance camera sensitivity modifier
+        transform.Rotate(Vector3.up * m_humanLookInput.x * 0.05f); // TODO balance camera sensitivity modifier
     }
 
     public override void UpdateMovement()
