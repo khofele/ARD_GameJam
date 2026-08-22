@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c9769f07937b848a8205f8c93e887f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HackingManager
+  m_quickTimeSets:
+  - {fileID: 11400000, guid: 347efcb871fd2374388158e574450813, type: 2}
+  - {fileID: 11400000, guid: 8de7d53b0f680674399f6ac236aec3a7, type: 2}
+  - {fileID: 11400000, guid: f59900f771e70244f85a07c0a5103920, type: 2}
