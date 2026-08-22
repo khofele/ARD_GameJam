@@ -101,7 +101,7 @@
             "id": "b99863ce-094f-430c-94a7-86eb03fd3697",
             "actions": [
                 {
-                    "name": "MoveBoxRobot",
+                    "name": "MoveBoxRobotTurnLeft",
                     "type": "Button",
                     "id": "8a8232de-7be0-423b-a086-2be8add3dee5",
                     "expectedControlType": "",
@@ -109,17 +109,124 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "MoveBoxRobotTurnRight",
+                    "type": "Button",
+                    "id": "f1f9f5ca-1197-4865-8a37-ba1cd9716550",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "MoveBoxRobotReverse",
+                    "type": "Button",
+                    "id": "4f3d5565-08c1-4e67-a8d1-9ef54852d4ad",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "LookBoxRobot",
+                    "type": "Value",
+                    "id": "1f81ea63-8171-40d4-a97d-fdb118c5c3a7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "67cfe2df-630a-4d6a-bda0-d0bc0985cd19",
-                    "path": "",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveBoxRobot",
+                    "action": "MoveBoxRobotTurnLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74fe19f9-187a-4759-9132-79caa0bf0dc9",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveBoxRobotTurnLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "062f836d-3659-4284-afb7-84561f7ae5fd",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveBoxRobotTurnRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c8cae02-0d1a-436c-8cf0-297e685437e3",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveBoxRobotTurnRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "19948575-82d4-4994-85cc-7a0969bf6e66",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveBoxRobotReverse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01faa7ad-6980-437b-a0b4-443bcc1aa712",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveBoxRobotReverse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b6b407a-d2f0-43f1-882c-7af3b59e260e",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookBoxRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f0c1cf0-321c-429b-a15c-a53de135663d",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookBoxRobot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

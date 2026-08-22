@@ -292,6 +292,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29bfd46abb8add64c98d731dc22e2f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxRobotMovement
+  m_robotHead: {fileID: 5081601932239692329}
+  m_turnLeftInActRef: {fileID: -4515166488207895228, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
+  m_turnRightInActRef: {fileID: 4009649362146058263, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
+  m_reverseInActRef: {fileID: -885490413898214670, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
+  m_lookInActRef: {fileID: -6431195963513148144, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
+  m_maxNick: 90
+  m_minNick: -90
+  m_degPerSec: 30
+  m_characterController: {fileID: 6111943524590423288}
 --- !u!114 &2917873480163737359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c044092b83b24a4794a617fe52cc2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HammerRobotMovement
-  m_characterController: {fileID: 6111943524590423288}
 --- !u!114 &5042960703540329607
 MonoBehaviour:
   m_ObjectHideFlags: 0
