@@ -378,8 +378,18 @@
                     "id": "0a6138e0-cc71-4a19-84bb-25aae74f15e8",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=1.5)",
                     "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "LookServiceRobot",
+                    "type": "Value",
+                    "id": "5433369e-fcc0-4795-8e23-29ac31b62478",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
                     "priority": 0
                 }
             ],
@@ -387,11 +397,44 @@
                 {
                     "name": "",
                     "id": "94e36f49-18f8-47a9-9140-0e5edd27d1a7",
-                    "path": "",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "MoveServiceRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe3b5fb9-aadf-4d6d-bf34-7b64f70cc0cf",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveServiceRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ba65137-5679-4572-9257-14090e593dd5",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookServiceRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5acd971a-7069-45b6-965a-09f427aa3cc5",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookServiceRobot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
