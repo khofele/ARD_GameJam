@@ -10,6 +10,7 @@ public class BoxRobotMovement : CharMovement
     public InputActionReference m_turnRightInActRef;
     public InputActionReference m_reverseInActRef;
     public InputActionReference m_lookInActRef;
+    public InputActionReference m_executeHackInActRef;
 
     [SerializeField]
     private const float m_forwardSpeed = 1.0f;
@@ -34,7 +35,7 @@ public class BoxRobotMovement : CharMovement
         }
         else
         {
-             reverseMod = 1f;
+            reverseMod = 1f;
         }
 
         float horz = reverseMod * m_degPerSec * Time.deltaTime;
@@ -64,10 +65,20 @@ public class BoxRobotMovement : CharMovement
 
         m_robotHead.transform.localRotation = Quaternion.AngleAxis(m_nick, Vector3.right);
     }
+
+    private void ExecuteHacking()
+    {
+        if(m_executeHackInActRef.action.IsPressed())
+        {
+            HackingManager.Instance.ExecuteHacking();
+        }
+    }
+
     public override void UpdateMovement()
     {
         Look();
         Move();
+        ExecuteHacking();
     }
 
     public void OnEnable()
@@ -76,6 +87,7 @@ public class BoxRobotMovement : CharMovement
         m_turnRightInActRef.action.Enable();
         m_reverseInActRef.action.Enable();
         m_lookInActRef.action.Enable();
+        m_executeHackInActRef.action.Enable();
     }
     public void OnDisable() 
     {
@@ -83,5 +95,6 @@ public class BoxRobotMovement : CharMovement
         m_turnRightInActRef.action.Disable();
         m_reverseInActRef.action.Disable();
         m_lookInActRef.action.Disable();
+        m_executeHackInActRef.action.Disable();
     }
 }
