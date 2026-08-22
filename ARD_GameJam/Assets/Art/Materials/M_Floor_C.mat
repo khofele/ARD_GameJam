@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Floor_Test
+  m_Name: M_Floor_C
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 9fb8ec8aa91e46842bca1162d3305a0f, type: 2}
+  m_Parent: {fileID: 2100000, guid: 89c59a8a2eb9e654299a28473c8db17d, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -26,11 +26,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: fd6807c918f1ae24dbbe63a6883f8d12, type: 3}
+        m_Texture: {fileID: 2800000, guid: 268e175281fdd584686970aee94c8695, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: fd6807c918f1ae24dbbe63a6883f8d12, type: 3}
+        m_Texture: {fileID: 2800000, guid: 268e175281fdd584686970aee94c8695, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
