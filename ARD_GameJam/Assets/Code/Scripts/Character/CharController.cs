@@ -9,6 +9,7 @@ public class CharController : MonoBehaviour
     private const string m_boxRobotInputName = "Box_Robot";
     private const string m_hammerRobotInputName = "Hammer_Robot";
     private const string m_serviceRobotInputName = "Service_Robot";
+    private const string m_hackingInputName = "Hacking";
     private const float m_maxHealth = 100.0f;
 
     // PRIVATE FIELDS
@@ -27,6 +28,11 @@ public class CharController : MonoBehaviour
     public static CharController Instance
     {
         get; private set;
+    }
+
+    public CharStates CurrentCharState
+    {
+        get { return m_currentCharState; }
     }
 
     public void SetCharState(CharStates _newCharState)
@@ -110,11 +116,16 @@ public class CharController : MonoBehaviour
 
     private void Update()
     {
-        // TODO movement depending on game state 
-
-        if(m_currentMovement != null)
+        if(GameManager.Instance.CurrentGameState == GameStates.RUNNING)
         {
-            m_currentMovement.UpdateMovement();
+            if (m_currentMovement != null)
+            {
+                m_currentMovement.UpdateMovement();
+            }
+        }
+        else if(GameManager.Instance.CurrentGameState == GameStates.HACKING)
+        {
+            m_playerInput.SwitchCurrentActionMap(m_hackingInputName);
         }
     }
 }
