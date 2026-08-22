@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     [Header("General Enemy Settings")]
     [SerializeField] protected CharStates m_correspondingCharState = CharStates.DEFAULT_HUMAN;
     [SerializeField] protected bool m_isWeakeningNeeded = false;
-    [SerializeField] protected float m_lidThreshold = 0.2f;
+    [Tooltip("Only relevant when weakening is needed")] [SerializeField] protected float m_lidThreshold = 0.2f;
     [SerializeField] protected float m_maxHealth = 100.0f;
 
     public bool IsLidOpenable
