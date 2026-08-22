@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96427242c3dea5946b38d64e9d16d498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharController
-  m_firstPersonCameraTransform: {fileID: 7956264496575090353}
   m_playerInput: {fileID: 5396457462054261499}
   m_humanMovement: {fileID: 7658946050083980323}
   m_boxRobotMovement: {fileID: 2401155735610145218}
@@ -293,7 +292,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29bfd46abb8add64c98d731dc22e2f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxRobotMovement
-  m_playerInput: {fileID: 5396457462054261499}
+  m_robotHead: {fileID: 5081601932239692329}
+  m_turnLeftInActRef: {fileID: -4515166488207895228, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
+  m_turnRightInActRef: {fileID: 4009649362146058263, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
+  m_reverseInActRef: {fileID: -885490413898214670, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
+  m_lookInActRef: {fileID: -6431195963513148144, guid: 0b0e5f817d914834886242b44c5e9589, type: 3}
+  m_maxNick: 90
+  m_minNick: -90
+  m_degPerSec: 30
+  m_characterController: {fileID: 6111943524590423288}
 --- !u!114 &2917873480163737359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,7 +313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c044092b83b24a4794a617fe52cc2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HammerRobotMovement
-  m_playerInput: {fileID: 5396457462054261499}
 --- !u!114 &5042960703540329607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8e3beaab1fa8346b87446f013b1817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ServiceRobotMovement
-  m_playerInput: {fileID: 5396457462054261499}
 --- !u!114 &7658946050083980323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,5 +337,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e641eb68410c5479a73c1a4c5b1684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HumanMovement
-  m_playerInput: {fileID: 5396457462054261499}
   m_characterController: {fileID: 6111943524590423288}

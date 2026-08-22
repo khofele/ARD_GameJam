@@ -12,7 +12,7 @@ public class BoxRobotMovement : CharMovement
     public InputActionReference m_lookInActRef;
 
     [SerializeField]
-    private const float m_forwardSpeed = 5.0f;
+    private const float m_forwardSpeed = 1.0f;
 
     private float m_gier = 0f;
     private float m_nick = 0f;
@@ -41,15 +41,15 @@ public class BoxRobotMovement : CharMovement
 
         if (m_turnLeftInActRef.action.IsPressed() && m_turnRightInActRef.action.IsPressed())
         {
-            m_characterController.Move(transform.forward * m_forwardSpeed * Time.deltaTime);
+            m_characterController.Move(reverseMod * m_forwardSpeed * Time.deltaTime * transform.forward);
         }
         else if (m_turnLeftInActRef.action.IsPressed()) // TODO Bugfix wird Kiste durch wand drücken
         {
-            m_gier += horz;
+            m_gier -= horz;
         }
         else if (m_turnRightInActRef.action.IsPressed()) // TODO Bugfix wird Kiste durch wand drücken
         {
-            m_gier -= horz;
+            m_gier += horz;
         }
 
         transform.localRotation = Quaternion.AngleAxis(m_gier, Vector3.up);
