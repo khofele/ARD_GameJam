@@ -102,7 +102,7 @@ public class CharController : MonoBehaviour
     private void Start()
     {
         m_currentHealth = m_maxHealth;
-        m_currentMovement = m_humanMovement;
+        SetCharState(CharStates.DEFAULT_HUMAN);
     }
 
     private void Update()
