@@ -25,6 +25,16 @@
                     "interactions": "",
                     "initialStateCheck": true,
                     "priority": 0
+                },
+                {
+                    "name": "ExecuteHackingHuman",
+                    "type": "Button",
+                    "id": "08768676-89e6-4438-9374-990a9b14a299",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -85,12 +95,56 @@
                 },
                 {
                     "name": "",
+                    "id": "e540e478-724c-49df-b3d0-e6aa2a9f7a78",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHuman",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a97ff04d-e2cc-47dc-8fb7-39f227aa37fb",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "LookHuman",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84399fc2-acd9-424a-84f9-45040e24f60e",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookHuman",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "24e60c05-d37e-4353-9b6e-fc8e8a3fd7e3",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExecuteHackingHuman",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cffe1a48-05c8-49cb-b4b3-554a185dc32f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExecuteHackingHuman",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -138,6 +192,16 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "ExecuteHackingBoxRobot",
+                    "type": "Button",
+                    "id": "643f7cce-8ec5-470c-ab13-8c7d87bf44f8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
                     "priority": 0
                 }
             ],
@@ -200,7 +264,7 @@
                 {
                     "name": "",
                     "id": "01faa7ad-6980-437b-a0b4-443bcc1aa712",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -227,6 +291,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "LookBoxRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e966eb01-0003-4f82-943b-51f7046b7444",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExecuteHackingBoxRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "40e26c87-328e-48f7-8f45-17d20a107c9e",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExecuteHackingBoxRobot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -270,6 +356,16 @@
                     "name": "AttackRightHammerRobot",
                     "type": "Button",
                     "id": "6a5a03a0-39d2-4621-a089-3e3d701003bc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "ExecuteHackingHammerRobot",
+                    "type": "Button",
+                    "id": "58879698-8db8-44bb-9be7-26111c3a5135",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -335,8 +431,30 @@
                 },
                 {
                     "name": "",
+                    "id": "1fcf01ab-b43c-4318-b300-108e91ef9ce7",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d08a756d-c51a-4e73-b001-82c2f7390db6",
                     "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e83d55f-e3f3-4990-9ebc-7054cfd9c236",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -357,12 +475,56 @@
                 },
                 {
                     "name": "",
+                    "id": "89a4347d-74fc-4302-ac4d-5bbe016e43ee",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackLeftHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c89b53a2-42bc-4d5f-88f8-d85e4bad0cf0",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "AttackRightHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "642eed99-5003-49c9-bb4b-1e5b4ac8908e",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackRightHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "edb8cd00-cc7c-489e-9034-de9437eee595",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExecuteHackingHammerRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14e4616d-ec40-413d-a7d5-14e497fa10f5",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExecuteHackingHammerRobot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -390,6 +552,16 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "ExecuteHackingServiceRobot",
+                    "type": "Button",
+                    "id": "282f180c-4bb4-4822-9cd9-ada262d13f82",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
                     "priority": 0
                 }
             ],
@@ -435,6 +607,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "LookServiceRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a9a6bafb-726e-4446-99d7-df489588d750",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExecuteHackingServiceRobot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5651aaca-b953-4743-854c-9fef9c78df27",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExecuteHackingServiceRobot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
