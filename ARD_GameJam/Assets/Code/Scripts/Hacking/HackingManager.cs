@@ -155,6 +155,7 @@ public class HackingManager : MonoBehaviour
             GameManager.Instance.SetGameState(GameStates.RUNNING);
             m_isHacking = false;
             UIManager.Instance.ChooseUIStateBasedOnCharState();
+            Timer.Instance.StartTimer();
             return;
         }
 
