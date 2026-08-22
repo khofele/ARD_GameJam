@@ -21,6 +21,14 @@ public class HumanMovement : CharMovement
         m_humanLookInput = _value.Get<Vector2>();
     }
 
+    private void OnExecuteHackingHuman(InputValue _value)
+    {
+        if(_value.isPressed == true)
+        {
+            HackingManager.Instance.ExecuteHacking();
+        }
+    }
+
     private void Move()
     {
         Vector3 normalizedMovementVector = new Vector3(m_humanMoveInput.x, 0.0f, m_humanMoveInput.y).normalized;
