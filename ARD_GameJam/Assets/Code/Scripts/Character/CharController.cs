@@ -127,5 +127,10 @@ public class CharController : MonoBehaviour
         {
             m_playerInput.SwitchCurrentActionMap(m_hackingInputName);
         }
+
+        if(m_currentHealth <= 0.0f)
+        {
+            GameManager.Instance.SetGameState(GameStates.GAMEOVER);
+        }
     }
 }
