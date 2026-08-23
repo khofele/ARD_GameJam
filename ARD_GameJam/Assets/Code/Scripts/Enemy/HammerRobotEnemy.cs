@@ -48,7 +48,7 @@ public class HammerRobotEnemy : Enemy
 
         float angleEnemyChar = Vector3.Angle(transform.forward, directionToChar);
 
-        if(angleEnemyChar <= 90.0f)
+        if(angleEnemyChar <= 90.0f) // 180° angle
         {
             return true;
         }
