@@ -20,7 +20,7 @@ LightmapParameters:
   blurRadius: 2
   directLightQuality: 64
   antiAliasingSamples: 2
-  pushoff: 1
+  pushoff: 0.201
   bakedLightmapTag: -1
   limitLightmapCount: 0
   maxLightmapCount: 1
