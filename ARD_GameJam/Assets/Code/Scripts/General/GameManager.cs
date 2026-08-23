@@ -44,9 +44,9 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void StartNewGame()
+    public void LoadLevel(int i)
     {
-        SceneManager.LoadScene((int)GameScenes.Intro);//Intro
+        SceneManager.LoadScene(i);//Intro
         SetGameState(GameStates.RUNNING);
     }
     public void QuitGame()
