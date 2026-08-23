@@ -64,4 +64,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         SetGameState(GameStates.RUNNING);
     }
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus) Cursor.lockState = CursorLockMode.None;
+        else Cursor.lockState = CursorLockMode.Confined;
+    }
 }

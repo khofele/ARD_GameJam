@@ -63,7 +63,7 @@ public class CharController : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     private string GetCurrentPlayerInputMap()
