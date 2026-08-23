@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class ServiceRobotMovement : CharMovement
 {
-    // TODO implement
     [SerializeField]
     private GameObject m_robotHead;
     //[SerializeField] private Slider m_moveChargeSlider;

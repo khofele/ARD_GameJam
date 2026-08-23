@@ -25,7 +25,7 @@ public class BoxRobotMovement : CharMovement
     private float m_degPerSec = 30f;
 
     [SerializeField] private CharacterController m_characterController = null;
-    // TODO implement
+
     private void Move()
     {
         float reverseMod;

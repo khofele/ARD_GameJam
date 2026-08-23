@@ -35,7 +35,7 @@ public abstract class Enemy : MonoBehaviour
             {
                 if (m_currentHealth <= m_maxHealth * m_lidThreshold)
                 {
-                    m_isLidOpenable = true; // TODO Lid can be opened --> display E-Button (UI-Component, referenced in Enemy class) --> Starts Minigame
+                    m_isLidOpenable = true; // TODO Lid can be opened --> display E-Button (UI-Component, referenced in Enemy class)
                     HackingManager.Instance.SetCurrentHackableEnemy(this);
                 }
             }
