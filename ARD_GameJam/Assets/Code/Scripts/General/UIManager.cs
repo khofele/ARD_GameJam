@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject m_hackingOverlay = null;
     public TextMeshProUGUI m_txtHackingBinding = null;
     public TextMeshProUGUI m_txtHackingTimer = null;
+    public TextMeshProUGUI m_txtOpenLid = null;
 
     public static UIManager Instance
     {
@@ -50,6 +51,7 @@ public class UIManager : MonoBehaviour
                 serviceRobotOverlay.SetActive(false);
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = false;
+                m_txtOpenLid.enabled = false;
                 break;
             case UIStates.BOXROBOT:
                 boxRobotOverlay.SetActive(true);
@@ -57,6 +59,7 @@ public class UIManager : MonoBehaviour
                 serviceRobotOverlay.SetActive(false);
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = true;
+                m_txtOpenLid.enabled = false;
                 break;
             case UIStates.HAMMERROBOT:
                 boxRobotOverlay.SetActive(false);
@@ -64,6 +67,7 @@ public class UIManager : MonoBehaviour
                 serviceRobotOverlay.SetActive(false);
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = true;
+                m_txtOpenLid.enabled = false;
                 break;
             case UIStates.SERVICEROBOT:
                 boxRobotOverlay.SetActive(false);
@@ -71,6 +75,7 @@ public class UIManager : MonoBehaviour
                 serviceRobotOverlay.SetActive(true);
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = true;
+                m_txtOpenLid.enabled = false;
                 break;
             case UIStates.HACKING:
                 boxRobotOverlay.SetActive(false);
@@ -78,6 +83,7 @@ public class UIManager : MonoBehaviour
                 serviceRobotOverlay.SetActive(false);
                 m_hackingOverlay.SetActive(true);
                 m_txtTimer.enabled = false;
+                m_txtOpenLid.enabled = false;
                 break;
         }
         m_currentUIState = newUIState;
@@ -105,6 +111,16 @@ public class UIManager : MonoBehaviour
                 SetUIState(UIStates.NONE);
                 break;
         }
+    }
+
+    public void EnableHackingIndicator()
+    {
+        m_txtOpenLid.enabled = true;
+    }
+
+    public void DisableHackingIndicator()
+    {
+        m_txtOpenLid.enabled = false;
     }
 
     private void ShowHackingInputs()
