@@ -1,9 +1,69 @@
 fileFormatVersion: 2
-guid: 777e5bd3f6a904349b8f50a7320e52f0
+guid: 408945bce7725cf4e8a8fe971ec0602a
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gummi
+    second: {fileID: 2100000, guid: af3b3a2e589a1044bbf82dd9d6de0abc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Kn\xF6pfe"
+    second: {fileID: 2100000, guid: 37949341fcf9a31408e0fb4d8303e107, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 3fc47429dc033514ab82dece9cb43b34, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TorsoMaterial
+    second: {fileID: 2100000, guid: 2f0f36dd12ce70147a5d47a0f863eaa2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: basis white
+    second: {fileID: 2100000, guid: aedd853a17e14d145b893f015111fc0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: licht1
+    second: {fileID: 2100000, guid: 56c042e43eb1c0e47851a5a41d079470, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: licht2
+    second: {fileID: 2100000, guid: 6a8356a850cc6bc439ea6a9bbf232215, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: licht3
+    second: {fileID: 2100000, guid: ce84100a40569f148aae30e7eb8b4b00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: licht4
+    second: {fileID: 2100000, guid: cc1d2f632d3d0c44a8e9aecbfad6a37c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metall
+    second: {fileID: 2100000, guid: 9e6718d8f313b6648a73aff0226e1a10, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: head
+    second: {fileID: 2800000, guid: e47a8aaa692bc424b85a6e54aa6be574, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: service-bot-torso-neu
+    second: {fileID: 2800000, guid: 2ec536033c2f0c64ea6fcd88af1fbfdd, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -23,43 +83,14 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Rolling
-      takeName: Armature|ArmatureAction
-      internalID: 4781951162920444690
-      firstFrame: 0
-      lastFrame: 93
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -112,7 +143,7 @@ ModelImporter:
     normalSmoothingSource: 0
     calculateBlendshapeNormalsDeltaFromImportedNormals: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -139,32 +170,32 @@ ModelImporter:
       scale: {x: 1, y: 0.99999994, z: 1}
     - name: collar.R
       parentName: spine
-      position: {x: -0.000000007450581, y: 1.1029164, z: 9.795864e-16}
+      position: {x: -0.000000007450581, y: 1.1029165, z: 9.795864e-16}
       rotation: {x: 0.54012084, y: 0.45636597, z: -0.40390965, w: 0.58039355}
       scale: {x: 1, y: 1.000001, z: 1.0000014}
     - name: armOben.R
       parentName: collar.R
-      position: {x: 0.000000006913666, y: 0.5595687, z: -0.00000016719267}
+      position: {x: 0.000000006913666, y: 0.55956876, z: -0.00000016719268}
       rotation: {x: -0.000000029802326, y: -0.0000002831221, z: -0.104600675, w: 0.9945143}
       scale: {x: 0.99999917, y: 0.99999803, z: 0.99999946}
     - name: armUnten.R
       parentName: armOben.R
-      position: {x: 0.000000003424475, y: 0.8202439, z: 0.0000001603416}
+      position: {x: 0.0000000034244745, y: 0.82024395, z: 0.00000016034163}
       rotation: {x: 0.000000036996017, y: -0.000000026553348, z: 0.014893031, w: 0.9998891}
       scale: {x: 1.0000007, y: 1.0000007, z: 1.0000006}
     - name: hand.R
       parentName: armUnten.R
-      position: {x: 9.646683e-10, y: 0.5003999, z: 0.00000013020758}
+      position: {x: 9.646686e-10, y: 0.50039995, z: 0.0000001302076}
       rotation: {x: -0.000000094939274, y: -0.000000039930484, z: -0.019988019, w: 0.9998002}
       scale: {x: 1.0000013, y: 1.0000002, z: 1.0000004}
     - name: collar.L
       parentName: spine
-      position: {x: -0.000000007450581, y: 1.1029164, z: 9.795864e-16}
+      position: {x: -0.000000007450581, y: 1.1029165, z: 9.795864e-16}
       rotation: {x: -0.58410895, y: 0.3985181, z: 0.45134497, w: 0.5443233}
       scale: {x: 1.0000007, y: 1.000002, z: 1.0000026}
     - name: armOben.L
       parentName: collar.L
-      position: {x: -0.000000017367853, y: 0.5595685, z: 0.0000004781405}
+      position: {x: -0.000000017367853, y: 0.5595685, z: 0.0000004781406}
       rotation: {x: 0.0000002384186, y: 0.00000007450581, z: 0.10848313, w: 0.9940983}
       scale: {x: 0.9999989, y: 0.9999985, z: 0.99999756}
     - name: armUnten.L
@@ -174,22 +205,22 @@ ModelImporter:
       scale: {x: 1.0000023, y: 0.99999845, z: 0.9999993}
     - name: hand.L
       parentName: armUnten.L
-      position: {x: 0.0000000032805723, y: 0.50039977, z: -0.00000024040634}
+      position: {x: 0.0000000032805725, y: 0.5003998, z: -0.00000024040634}
       rotation: {x: -0.000000030252256, y: 0.0000000046721755, z: -0.019988006, w: 0.9998002}
       scale: {x: 0.99999887, y: 1.0000008, z: 0.9999999}
     - name: Neck1
       parentName: spine
-      position: {x: -0.000000007450581, y: 1.1029164, z: 9.795864e-16}
+      position: {x: -0.000000007450581, y: 1.1029165, z: 9.795864e-16}
       rotation: {x: 0.00000008744, y: 0.00000009808822, z: 0.043716412, w: 0.999044}
       scale: {x: 1, y: 0.9999999, z: 1}
     - name: Neck2
       parentName: Neck1
-      position: {x: -3.733125e-15, y: 0.3826756, z: -3.8191672e-14}
+      position: {x: -3.733125e-15, y: 0.3826756, z: -3.819167e-14}
       rotation: {x: -0.000000006408605, y: 0.0000000036592596, z: 0.26495534, w: 0.96426076}
       scale: {x: 1.0000001, y: 1.0000001, z: 1}
     - name: Head
       parentName: Neck2
-      position: {x: 0.00000009126961, y: 0.2796433, z: -1.44329e-14}
+      position: {x: 0.000000091269634, y: 0.2796433, z: -1.44329e-14}
       rotation: {x: 0.00000009571487, y: -0.00000011790294, z: 0.48676944, w: 0.8735305}
       scale: {x: 1.0000031, y: 0.9999999, z: 1}
     - name: beinOben
@@ -199,42 +230,42 @@ ModelImporter:
       scale: {x: 0.9999999, y: 1.0000004, z: 1.0000014}
     - name: beinUnten
       parentName: beinOben
-      position: {x: 1.1368684e-13, y: 0.6277796, z: -0.000000029802289}
+      position: {x: 1.1368684e-13, y: 0.62777966, z: -0.00000002980229}
       rotation: {x: -0.415941, y: -0.0000003594905, z: 0.000000067055225, w: 0.9093916}
       scale: {x: 1.0000005, y: 1.000003, z: 0.9999998}
     - name: rad
       parentName: beinUnten
-      position: {x: 4.1293442e-14, y: 0.9822201, z: -0.00000002492012}
+      position: {x: 4.1293442e-14, y: 0.98222005, z: -0.00000002492012}
       rotation: {x: 0.00000020861627, y: 0.00000010696264, z: -0.7071072, w: 0.7071065}
       scale: {x: 1.0000001, y: 1.000002, z: 1.0000007}
     - name: HandIK.R
       parentName: Armature
-      position: {x: -0, y: -1.87, z: 3.545578}
+      position: {x: -0, y: -1.8700004, z: 3.5455782}
       rotation: {x: 1, y: -2.842171e-14, z: 0.00000019470721, w: -0.00000008940697}
       scale: {x: 1, y: 1.0000001, z: 1.0000001}
     - name: ellbowPole.R
       parentName: Armature
-      position: {x: -1.7449601, y: -0.9649422, z: 3.545578}
+      position: {x: -1.7449601, y: -0.9649423, z: 3.5455782}
       rotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
       scale: {x: 1.0000001, y: 1, z: 1}
     - name: HandIK.L
       parentName: Armature
-      position: {x: -0, y: 1.87, z: 3.545578}
+      position: {x: -0, y: 1.8700004, z: 3.5455782}
       rotation: {x: 0.00000014901163, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 0.99999994, z: 0.99999994}
     - name: ellbowPole.L
       parentName: Armature
-      position: {x: -1.7536173, y: 0.96324074, z: 3.545578}
+      position: {x: -1.7536172, y: 0.96324086, z: 3.5455782}
       rotation: {x: 0.000000059604645, y: -0.00000008940697, z: 0.7071068, w: 0.70710677}
       scale: {x: 1, y: 0.9999998, z: 1}
     - name: wheelIK
       parentName: Armature
-      position: {x: -0, y: 0.00000018732905, z: 0.7886302}
+      position: {x: -0, y: 0.00000018732904, z: 0.7886302}
       rotation: {x: 0.49999994, y: 0.50000006, z: -0.49999994, w: -0.50000006}
       scale: {x: 1.0000001, y: 1.0000012, z: 1}
     - name: kneePole
       parentName: Armature
-      position: {x: -0, y: -4.761061, z: 1.6903969}
+      position: {x: -0, y: -4.761061, z: 1.6903973}
       rotation: {x: 0.000004410744, y: -0.00000014901163, z: 1, w: -6.821211e-13}
       scale: {x: 1.0000008, y: 0.99999994, z: 0.99999994}
     - name: Cylinder
@@ -244,7 +275,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Cylinder.001
       parentName: ServiceRobot(Clone)
-      position: {x: -0.0000000114087015, y: 0.000000059604645, z: 0}
+      position: {x: -0.000000011408704, y: 0.000000059604645, z: 0}
       rotation: {x: 0.69302267, y: 0.14042647, z: 0.14042646, w: 0.69302267}
       scale: {x: 1, y: 1, z: 1}
     - name: Cylinder.002
@@ -269,7 +300,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Neck
       parentName: ServiceRobot(Clone)
-      position: {x: 0.00000010803342, y: 0, z: 0.000000007474753}
+      position: {x: 0.000000108033426, y: 0, z: 0.000000007474754}
       rotation: {x: -0.019327413, y: 0.04068036, z: -0.21237557, w: 0.9761497}
       scale: {x: 1, y: 0.99999994, z: 1}
     - name: Neck2
@@ -309,11 +340,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 408945bce7725cf4e8a8fe971ec0602a, type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
