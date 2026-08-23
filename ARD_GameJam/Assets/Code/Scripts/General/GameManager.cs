@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int i)
     {
-        SceneManager.LoadScene(i);//Intro
+        SceneManager.LoadScene(i);
         SetGameState(GameStates.RUNNING);
     }
     public void QuitGame()
