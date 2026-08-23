@@ -22,12 +22,22 @@ public abstract class Enemy : MonoBehaviour
         get { return m_correspondingCharState; }
     }
 
+    public void TakeDamage(float _damageValue)
+    {
+        m_currentHealth -= _damageValue;
+
+        if(m_currentHealth <= 0.0f)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     protected virtual void Start()
     {
         m_currentHealth = m_maxHealth;
     }
 
-    protected void OnTriggerEnter(Collider other) // TODO child classes/prefabs need trigger!!
+    protected void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<CharController>() != null)
         {
@@ -35,13 +45,15 @@ public abstract class Enemy : MonoBehaviour
             {
                 if (m_currentHealth <= m_maxHealth * m_lidThreshold)
                 {
-                    m_isLidOpenable = true; // TODO Lid can be opened --> display E-Button (UI-Component, referenced in Enemy class)
+                    m_isLidOpenable = true;
+                    UIManager.Instance.EnableHackingIndicator();
                     HackingManager.Instance.SetCurrentHackableEnemy(this);
                 }
             }
             else
             {
                 m_isLidOpenable = true;
+                UIManager.Instance.EnableHackingIndicator();
                 HackingManager.Instance.SetCurrentHackableEnemy(this);
                 Debug.Log("Lid Openable");
             }
@@ -53,6 +65,7 @@ public abstract class Enemy : MonoBehaviour
         if (other.gameObject.GetComponent<CharController>() != null)
         {
             m_isLidOpenable = false;
+            UIManager.Instance.DisableHackingIndicator();
             Debug.Log("Lid Not Openable");
         }
     }

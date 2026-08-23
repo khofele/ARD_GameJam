@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +14,7 @@ public class HammerRobotMovement : CharMovement
     private float m_attackCooldownTimer = 0.0f;
     private bool m_isLastAttackLeft = false;
 
-    [SerializeField] private CharacterController m_characterController = null;
+    [SerializeField] private LayerMask m_enemyLayer;
 
     private void OnMoveHammerRobot(InputValue _value)
     {
@@ -64,11 +65,13 @@ public class HammerRobotMovement : CharMovement
 
         if (_isAttackLeft == true)
         {
-            Debug.Log("Left Attack"); // TODO implement animation + attack
+            PerformAttack();
+            Debug.Log("Left Attack"); // TODO implement animation left attack
         }
         else
         {
-            Debug.Log("Right Attack"); // TODO implement animation + attack 
+            PerformAttack();
+            Debug.Log("Right Attack"); // TODO implement animation right attack
         }
 
         m_isLastAttackLeft = _isAttackLeft;
@@ -80,6 +83,23 @@ public class HammerRobotMovement : CharMovement
         else
         {
             m_attackCooldownTimer = m_attackLongCooldown;
+        }
+    }
+
+    private void PerformAttack()
+    {
+        Vector3 attackCenter = transform.position + transform.forward;
+
+        Collider[] hitColliders = Physics.OverlapSphere(attackCenter, 1.2f, m_enemyLayer);
+        
+        foreach (Collider hit in hitColliders)
+        {
+            Enemy enemy = hit.GetComponent<Enemy>();
+
+            if (enemy != null)
+            {
+                enemy.TakeDamage(15.0f);
+            }
         }
     }
 
@@ -96,7 +116,7 @@ public class HammerRobotMovement : CharMovement
         Vector3 normalizedMovementVector = new Vector3(m_hammerRobotMoveInput.x, 0.0f, m_hammerRobotMoveInput.y).normalized;
         Vector3 transformedMovementVector = transform.TransformDirection(normalizedMovementVector);
 
-        m_characterController.Move(transformedMovementVector * m_charSpeed * Time.deltaTime);
+        CharController.Instance.GetComponent<CharacterController>().Move(transformedMovementVector * m_charSpeed * Time.deltaTime);
     }
 
     private void Look()

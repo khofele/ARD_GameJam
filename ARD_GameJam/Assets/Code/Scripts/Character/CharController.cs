@@ -44,6 +44,16 @@ public class CharController : MonoBehaviour
         Debug.Log("Char State changed to " + _newCharState);
     }
 
+    public void TakeDamage(float _damageValue)
+    {
+        m_currentHealth -= _damageValue;
+        Debug.Log(m_currentHealth);
+        if (m_currentHealth <= 0.0f)
+        {
+            GameManager.Instance.SetGameState(GameStates.GAMEOVER);
+        }
+    }
+
     private void Awake()
     {
         if(Instance != null && Instance != this)

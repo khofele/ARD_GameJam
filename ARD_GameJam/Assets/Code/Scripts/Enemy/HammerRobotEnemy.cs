@@ -5,14 +5,16 @@ public class HammerRobotEnemy : Enemy
 {
     private const float m_detectionRange = 10.0f; // TODO balance values
     private const float m_attackRange = 2.0f;
+    private const float m_attackCooldownDuration = 2.0f;
 
     private HammerRobotStates m_currentHammerRobotState = HammerRobotStates.PATROL;
     private int m_currentPathIndex = 0;
+    private float m_attackCooldownTimer = 0.0f;
 
     [Header("Hammer Robot References")]
     [SerializeField] private NavMeshAgent m_navAgent = null;
-    [SerializeField] private CharController m_charController = null;
     [SerializeField] private Transform[] m_path = null;
+    [SerializeField] private LayerMask m_playerLayer;
 
     private void ExecuteEnemyBehavior()
     {
@@ -34,7 +36,7 @@ public class HammerRobotEnemy : Enemy
 
     private bool IsCharacterInVisibleAngle()
     {
-        Vector3 directionToChar = m_charController.transform.position - transform.position;
+        Vector3 directionToChar = CharController.Instance.transform.position - transform.position;
         float distanceToChar = CalculateCharacterDistance();
 
         if (distanceToChar > m_detectionRange)
@@ -58,7 +60,7 @@ public class HammerRobotEnemy : Enemy
 
     private float CalculateCharacterDistance()
     {
-        return Vector3.Distance(transform.position, m_charController.transform.position);
+        return Vector3.Distance(transform.position, CharController.Instance.transform.position);
     }
     // PATROL ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void Patrol()
@@ -120,7 +122,7 @@ public class HammerRobotEnemy : Enemy
 
         // execute chasing
         m_navAgent.isStopped = false;
-        m_navAgent.SetDestination(m_charController.transform.position);
+        m_navAgent.SetDestination(CharController.Instance.transform.position);
     }
 
     private void StartChasing()
@@ -146,14 +148,47 @@ public class HammerRobotEnemy : Enemy
             return;
         }
 
-        Debug.Log("Attack");
-        // TODO implement alternating attack + anim
+        PerformAttack();
+        // TODO implement attack animation
     }
 
     private void StartAttacking()
     {
         m_currentHammerRobotState = HammerRobotStates.ATTACK;
         m_navAgent.isStopped = true;
+    }
+
+    private void PerformAttack()
+    {
+        if(m_attackCooldownTimer > 0.0f)
+        {
+            return;
+        }
+        Debug.Log("Hammer Robot Enemy Attack");
+        Vector3 attackCenter = transform.position + transform.forward;
+
+        Collider[] hitColliders = Physics.OverlapSphere(attackCenter, 1.2f, m_playerLayer);
+
+        foreach (Collider hit in hitColliders)
+        {
+            CharController player = hit.GetComponent<CharController>();
+
+            if (player != null)
+            {
+                Debug.Log(player.name);
+                player.TakeDamage(15.0f);
+            }
+        }
+
+        m_attackCooldownTimer = m_attackCooldownDuration;
+    }
+
+    private void UpdateAttackCooldown()
+    {
+        if (m_attackCooldownTimer > 0.0f)
+        {
+            m_attackCooldownTimer -= Time.deltaTime;
+        }
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -168,6 +203,7 @@ public class HammerRobotEnemy : Enemy
         if(GameManager.Instance.CurrentGameState == GameStates.RUNNING)
         {
             ExecuteEnemyBehavior();
+            UpdateAttackCooldown();
         }
         else if(GameManager.Instance.CurrentGameState == GameStates.HACKING)
         {
