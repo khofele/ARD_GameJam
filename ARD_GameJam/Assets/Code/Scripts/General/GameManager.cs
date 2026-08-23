@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,15 @@ public class GameManager : MonoBehaviour
         m_currentGameState = _newGameState;
 
         Debug.Log("Game State changed to " + _newGameState);
+
+        switch (m_currentGameState) { 
+        case GameStates.PAUSED:
+                Time.timeScale = 0f; Cursor.visible = true; break;
+        case GameStates.HACKING:
+                Cursor.visible = true; break;
+        default: 
+                Time.timeScale = 1f; Cursor.visible = false; break;
+        }
     }
 
     private void Awake()
@@ -32,5 +42,25 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void StartNewGame()
+    {
+        SceneManager.LoadScene((int)GameScenes.Intro);//Intro
+        SetGameState(GameStates.RUNNING);
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene((int)GameScenes.MainMenu);//MainMenu
+        SetGameState(GameStates.PAUSED);
+    }
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SetGameState(GameStates.RUNNING);
     }
 }
