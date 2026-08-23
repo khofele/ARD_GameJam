@@ -39,7 +39,7 @@ public class HumanMovement : CharMovement
 
     private void Look()
     {
-        transform.Rotate(Vector3.up * m_humanLookInput.x * 0.05f); // TODO balance camera sensitivity modifier
+        transform.Rotate(Vector3.up * m_humanLookInput.x * 0.05f);
     }
 
     public override void UpdateMovement()
