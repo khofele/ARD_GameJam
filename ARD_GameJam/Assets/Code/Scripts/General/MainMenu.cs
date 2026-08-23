@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
     public Button ngButton;
     public void NewGameIsPressed()
     {
-        GameManager.Instance?.StartNewGame();
+        GameManager.Instance?.LoadLevel((int)GameScenes.Intro);
     }
     public void QuitGameIsPressed()
     {
@@ -16,4 +16,5 @@ public class MainMenu : MonoBehaviour
     //{
     //    ngButton.Select();
     //}
+    
 }
