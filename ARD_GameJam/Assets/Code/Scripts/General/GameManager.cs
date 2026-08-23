@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     }
     public void ReloadLevel()
     {
+        Debug.Log("Reloading Scene");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         SetGameState(GameStates.RUNNING);
     }

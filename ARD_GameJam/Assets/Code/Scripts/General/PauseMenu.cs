@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PauseMenu : MonoBehaviour
 {
     public InputActionReference pauseInActRef;
+    public GameObject pauseMenu;
     private void OnEnable()
     {
         pauseInActRef.action.Enable();
@@ -16,11 +17,13 @@ public class PauseMenu : MonoBehaviour
     private void Resume()
     {
         GameManager.Instance?.SetGameState(GameStates.RUNNING);
+        pauseMenu.SetActive(false);
     }
     private void Pause()
     {
         if (GameManager.Instance?.CurrentGameState == GameStates.GAMEOVER || GameManager.Instance?.CurrentGameState == GameStates.HACKING) return;
         GameManager.Instance?.SetGameState(GameStates.PAUSED);
+        pauseMenu.SetActive(true);
     }
     public void ToggleMenu()
     {
@@ -36,6 +39,7 @@ public class PauseMenu : MonoBehaviour
     public void ReloadLevelIsPressed()
     {
         GameManager.Instance?.ReloadLevel();
+        Debug.Log("ReloadLevelPressed");
     }
     public void QuitGameIsPressed()
     {
