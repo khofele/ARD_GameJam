@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 2917873480163737359}
   - component: {fileID: 5042960703540329607}
   - component: {fileID: 7658946050083980323}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FirstPersonCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c044092b83b24a4794a617fe52cc2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HammerRobotMovement
-  m_characterController: {fileID: 6111943524590423288}
+  m_enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &5042960703540329607
 MonoBehaviour:
   m_ObjectHideFlags: 0
