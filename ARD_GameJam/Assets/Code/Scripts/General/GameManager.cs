@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -27,9 +28,18 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0f; Cursor.visible = true; break;
         case GameStates.HACKING:
                 Cursor.visible = true; break;
+        case GameStates.GAMEOVER:
+                StartCoroutine(GameOver());
+                break;
         default: 
                 Time.timeScale = 1f; Cursor.visible = false; break;
         }
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(2f);
+        ReloadLevel();
     }
 
     private void Awake()

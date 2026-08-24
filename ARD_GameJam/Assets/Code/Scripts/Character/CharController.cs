@@ -25,6 +25,15 @@ public class CharController : MonoBehaviour
     [SerializeField] private HammerRobotMovement m_hammerRobotMovement = null;
     [SerializeField] private ServiceRobotMovement m_serviceRobotMovement = null;
 
+    //Aussehen und Größe
+    [SerializeField] private GameObject m_boxRobot = null;
+    [SerializeField] private GameObject m_hammerRobot = null;
+    [SerializeField] private GameObject m_serviceRobot = null;
+    [SerializeField] private GameObject m_defaultHuman = null;
+
+    private CharacterController m_characterController;
+    private Vector3 m_velocity = Vector3.zero;
+    private float m_gravity = -9.81f;
     public static CharController Instance
     {
         get; private set;
@@ -40,6 +49,8 @@ public class CharController : MonoBehaviour
         m_currentCharState = _newCharState;
         m_playerInput.SwitchCurrentActionMap(GetCurrentPlayerInputMap());
         m_currentMovement = GetCurrentStateMovement();
+
+        SetVisuals();
 
         Debug.Log("Char State changed to " + _newCharState);
     }
@@ -64,6 +75,8 @@ public class CharController : MonoBehaviour
 
         Instance = this;
         //DontDestroyOnLoad(gameObject);
+
+        m_characterController = GetComponent<CharacterController>();
     }
 
     private string GetCurrentPlayerInputMap()
@@ -108,6 +121,67 @@ public class CharController : MonoBehaviour
         }
     }
 
+    private void SetVisuals()
+    {
+        switch (m_currentCharState)
+        {
+            //case CharStates.DEFAULT_HUMAN:
+            //    m_defaultHuman.SetActive(true);
+            //    m_boxRobot.SetActive(false);
+            //    m_hammerRobot.SetActive(false);
+            //    m_serviceRobot.SetActive(false);
+            //break;
+
+            case CharStates.BOX_ROBOT:
+                m_defaultHuman.SetActive(false);
+                m_boxRobot.SetActive(true);
+                m_hammerRobot.SetActive(false);
+                m_serviceRobot.SetActive(false);
+                m_characterController.radius = 0.15f;
+                m_characterController.height = 0.4f;
+                m_characterController.center = new Vector3(0f, 0f, 0f);
+                break;
+
+            case CharStates.HAMMER_ROBOT:
+                m_defaultHuman.SetActive(false);
+                m_boxRobot.SetActive(false);
+                m_hammerRobot.SetActive(true);
+                m_serviceRobot.SetActive(false);
+                m_characterController.radius = 0.15f;
+                m_characterController.height = 1.15f;
+                m_characterController.center = new Vector3(0f, 0.375f, 0f);
+                break;
+
+            case CharStates.SERVICE_ROBOT:
+                m_defaultHuman.SetActive(false);
+                m_boxRobot.SetActive(false);
+                m_hammerRobot.SetActive(false);
+                m_serviceRobot.SetActive(true);
+                m_characterController.radius = 0.15f;
+                m_characterController.height = 1.15f;
+                m_characterController.center = new Vector3(0f, 0.375f, 0f);
+                break;
+
+            default:
+                m_defaultHuman.SetActive(true);
+                m_boxRobot.SetActive(false);
+                m_hammerRobot.SetActive(false);
+                m_serviceRobot.SetActive(false);
+                m_characterController.radius = 0.1f;
+                m_characterController.height = 0.4f;
+                m_characterController.center = new Vector3(0f, 0f, 0f);
+            break;
+        }
+    }
+    private void ProcessGravity()
+    {
+        if (m_characterController.isGrounded && m_velocity.y <= 0f)
+        {
+            m_velocity.y = -2f;
+        }
+        m_velocity.y += m_gravity * Time.deltaTime * Time.deltaTime;
+        m_characterController.Move(m_velocity);
+    }
     private void OnEnable()
     {
         m_playerInput.SwitchCurrentActionMap(GetCurrentPlayerInputMap());
@@ -132,6 +206,7 @@ public class CharController : MonoBehaviour
             {
                 m_currentMovement.UpdateMovement();
             }
+            ProcessGravity();
         }
         else if(GameManager.Instance.CurrentGameState == GameStates.HACKING)
         {

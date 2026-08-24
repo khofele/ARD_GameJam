@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     public GameObject hammerRobotOverlay;
     public GameObject serviceRobotOverlay;
 
+    public GameObject deathscreen;
+
     public TextMeshProUGUI m_txtTimer = null;
 
     [Header("Hacking UI References")]
@@ -26,6 +28,9 @@ public class UIManager : MonoBehaviour
     }
     private void Awake()
     {
+        //hier statt in start, sonst wird nur einmal ausgeführt
+        SetUIState(UIStates.NONE);
+
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -36,10 +41,11 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-        SetUIState(UIStates.NONE);
-    }
+    //private void Start()
+    //{
+    //    //SetUIState(UIStates.NONE);
+    //    //deathscreen.SetActive(false);
+    //}
 
     public void SetUIState(UIStates newUIState)
     {
@@ -52,6 +58,7 @@ public class UIManager : MonoBehaviour
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = false;
                 m_txtOpenLid.enabled = false;
+                deathscreen.SetActive(false);
                 break;
             case UIStates.BOXROBOT:
                 boxRobotOverlay.SetActive(true);
@@ -60,6 +67,7 @@ public class UIManager : MonoBehaviour
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = true;
                 m_txtOpenLid.enabled = false;
+                deathscreen.SetActive(false);
                 break;
             case UIStates.HAMMERROBOT:
                 boxRobotOverlay.SetActive(false);
@@ -68,6 +76,7 @@ public class UIManager : MonoBehaviour
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = true;
                 m_txtOpenLid.enabled = false;
+                deathscreen.SetActive(false);
                 break;
             case UIStates.SERVICEROBOT:
                 boxRobotOverlay.SetActive(false);
@@ -76,6 +85,7 @@ public class UIManager : MonoBehaviour
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = true;
                 m_txtOpenLid.enabled = false;
+                deathscreen.SetActive(false);
                 break;
             case UIStates.HACKING:
                 boxRobotOverlay.SetActive(false);
@@ -84,6 +94,16 @@ public class UIManager : MonoBehaviour
                 m_hackingOverlay.SetActive(true);
                 m_txtTimer.enabled = false;
                 m_txtOpenLid.enabled = false;
+                deathscreen.SetActive(false);
+                break;
+            case UIStates.DEATHSCREEN:
+                boxRobotOverlay.SetActive(false);
+                hammerRobotOverlay.SetActive(false);
+                serviceRobotOverlay.SetActive(false);
+                m_hackingOverlay.SetActive(false);
+                m_txtTimer.enabled = false;
+                m_txtOpenLid.enabled = false;
+                deathscreen.SetActive(true);
                 break;
         }
         m_currentUIState = newUIState;
@@ -129,7 +149,7 @@ public class UIManager : MonoBehaviour
         {
             return;
         }
-
+        //Error nullref
         m_txtHackingBinding.text = "Press " + HackingManager.Instance.RequiredBinding.BindingInputActionReference.action.name;
         m_txtHackingTimer.text = HackingManager.Instance.HackingTimer.ToString("F3");
     }
@@ -141,12 +161,15 @@ public class UIManager : MonoBehaviour
             ShowHackingInputs();
         }
 
-        if(GameManager.Instance.CurrentGameState == GameStates.GAMEOVER)
+        if (GameManager.Instance.CurrentGameState == GameStates.GAMEOVER)
         {
-            SetUIState(UIStates.NONE);
+            //SetUIState(UIStates.NONE);
+            //deathscreen.SetActive(true);
+
+            SetUIState(UIStates.DEATHSCREEN);
         }
 
-        if(m_currentUIState != UIStates.HACKING && m_currentUIState != UIStates.NONE)
+        if (m_currentUIState != UIStates.HACKING && m_currentUIState != UIStates.NONE)
         {
             m_txtTimer.text = Timer.Instance.TimerValue.ToString("F3");
         }

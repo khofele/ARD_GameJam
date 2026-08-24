@@ -80,7 +80,7 @@ public class ServiceRobotMovement : CharMovement
         m_nick = Mathf.Clamp(m_nick, m_minNick, m_maxNick);
 
         transform.localRotation = Quaternion.AngleAxis(m_gier, Vector3.up);
-        m_robotHead.transform.localRotation = Quaternion.AngleAxis(m_nick, Vector3.right);
+        m_robotHead.transform.localRotation = Quaternion.Euler(0f, -90f, 0f) * Quaternion.AngleAxis(m_nick, Vector3.right);
     }
 
     private void ExecuteHacking()

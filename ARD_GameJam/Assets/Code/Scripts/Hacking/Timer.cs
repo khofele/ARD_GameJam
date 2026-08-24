@@ -30,6 +30,7 @@ public class Timer : MonoBehaviour
 
             if (m_timerValue <= 0.0f)
             {
+                m_isTimerRunning = false;
                 GameManager.Instance.SetGameState(GameStates.GAMEOVER);
             }
         }
