@@ -38,9 +38,13 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOver()
     {
+        UIManager.Instance.ToggleDeathScreen(true);
         yield return new WaitForSeconds(2f);
+        UIManager.Instance.ToggleDeathScreen(false);//provisorisch später mit onsceneloaded
         ReloadLevel();
     }
+
+
 
     private void Awake()
     {

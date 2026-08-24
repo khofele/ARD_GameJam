@@ -28,9 +28,6 @@ public class UIManager : MonoBehaviour
     }
     private void Awake()
     {
-        //hier statt in start, sonst wird nur einmal ausgeführt
-        SetUIState(UIStates.NONE);
-
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -41,11 +38,11 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    //private void Start()
-    //{
-    //    //SetUIState(UIStates.NONE);
-    //    //deathscreen.SetActive(false);
-    //}
+    private void Start()
+    {
+        SetUIState(UIStates.NONE);
+        deathscreen.SetActive(false);
+    }
 
     public void SetUIState(UIStates newUIState)
     {
@@ -58,7 +55,7 @@ public class UIManager : MonoBehaviour
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = false;
                 m_txtOpenLid.enabled = false;
-                deathscreen.SetActive(false);
+                //deathscreen.SetActive(false);
                 break;
             case UIStates.BOXROBOT:
                 boxRobotOverlay.SetActive(true);
@@ -67,7 +64,7 @@ public class UIManager : MonoBehaviour
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = true;
                 m_txtOpenLid.enabled = false;
-                deathscreen.SetActive(false);
+                //deathscreen.SetActive(false);
                 break;
             case UIStates.HAMMERROBOT:
                 boxRobotOverlay.SetActive(false);
@@ -76,7 +73,7 @@ public class UIManager : MonoBehaviour
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = true;
                 m_txtOpenLid.enabled = false;
-                deathscreen.SetActive(false);
+                //deathscreen.SetActive(false);
                 break;
             case UIStates.SERVICEROBOT:
                 boxRobotOverlay.SetActive(false);
@@ -85,7 +82,7 @@ public class UIManager : MonoBehaviour
                 m_hackingOverlay.SetActive(false);
                 m_txtTimer.enabled = true;
                 m_txtOpenLid.enabled = false;
-                deathscreen.SetActive(false);
+                //deathscreen.SetActive(false);
                 break;
             case UIStates.HACKING:
                 boxRobotOverlay.SetActive(false);
@@ -94,23 +91,27 @@ public class UIManager : MonoBehaviour
                 m_hackingOverlay.SetActive(true);
                 m_txtTimer.enabled = false;
                 m_txtOpenLid.enabled = false;
-                deathscreen.SetActive(false);
+                //deathscreen.SetActive(false);
                 break;
-            case UIStates.DEATHSCREEN:
-                boxRobotOverlay.SetActive(false);
-                hammerRobotOverlay.SetActive(false);
-                serviceRobotOverlay.SetActive(false);
-                m_hackingOverlay.SetActive(false);
-                m_txtTimer.enabled = false;
-                m_txtOpenLid.enabled = false;
-                deathscreen.SetActive(true);
-                break;
+            //case UIStates.DEATHSCREEN:
+            //    boxRobotOverlay.SetActive(false);
+            //    hammerRobotOverlay.SetActive(false);
+            //    serviceRobotOverlay.SetActive(false);
+            //    m_hackingOverlay.SetActive(false);
+            //    m_txtTimer.enabled = false;
+            //    m_txtOpenLid.enabled = false;
+            //    deathscreen.SetActive(true);
+            //    break;
         }
         m_currentUIState = newUIState;
 
         Debug.Log("UI State changed to " + m_currentUIState);
     }
 
+    public void ToggleDeathScreen(bool toggle)
+    {
+        deathscreen.SetActive(toggle);
+    }
     public void ChooseUIStateBasedOnCharState()
     {
         switch(CharController.Instance.CurrentCharState)
@@ -163,10 +164,7 @@ public class UIManager : MonoBehaviour
 
         if (GameManager.Instance.CurrentGameState == GameStates.GAMEOVER)
         {
-            //SetUIState(UIStates.NONE);
-            //deathscreen.SetActive(true);
-
-            SetUIState(UIStates.DEATHSCREEN);
+            SetUIState(UIStates.NONE);
         }
 
         if (m_currentUIState != UIStates.HACKING && m_currentUIState != UIStates.NONE)

@@ -6,6 +6,6 @@ public enum UIStates
     BOXROBOT,
     HAMMERROBOT,
     SERVICEROBOT,
-    HACKING,
-    DEATHSCREEN
+    HACKING
+    //DEATHSCREEN
 }
