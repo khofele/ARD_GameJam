@@ -15,6 +15,7 @@ public class CharController : MonoBehaviour
     // PRIVATE FIELDS
     private CharStates m_currentCharState = CharStates.DEFAULT_HUMAN;
     private CharMovement m_currentMovement = null;
+    [SerializeField]
     private float m_currentHealth = 0.0f;
 
     // SERIALIZE FIELDS
@@ -74,7 +75,7 @@ public class CharController : MonoBehaviour
         }
 
         Instance = this;
-        //DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject); // damit resettet wird
 
         m_characterController = GetComponent<CharacterController>();
     }
@@ -213,9 +214,17 @@ public class CharController : MonoBehaviour
             m_playerInput.SwitchCurrentActionMap(m_hackingInputName);
         }
 
-        if(m_currentHealth <= 0.0f)
-        {
-            GameManager.Instance.SetGameState(GameStates.GAMEOVER);
-        }
+        //if(m_currentHealth <= 0.0f)
+        //{
+        //    GameManager.Instance.SetGameState(GameStates.GAMEOVER);
+        //}
+    }
+
+    public void TakeTransform(Transform enemyTransform)
+    {
+        m_characterController.enabled = false;
+        m_characterController.transform.position = enemyTransform.position;
+        m_characterController.transform.rotation = enemyTransform.rotation;
+        m_characterController.enabled = true;
     }
 }

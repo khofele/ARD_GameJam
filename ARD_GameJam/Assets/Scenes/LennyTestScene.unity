@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &199773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 199774}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &199774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199773}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.723, y: 0.288, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &612255089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,6 +254,10 @@ PrefabInstance:
     - target: {fileID: 1864710107978712060, guid: a08d21afa7d2ed74bbb7ccec69b06800, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5396457462054261499, guid: a08d21afa7d2ed74bbb7ccec69b06800, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 2a56ad43-a7c8-45c1-9cb2-4e9d642ceeb4
       objectReference: {fileID: 0}
     - target: {fileID: 8785686459368939982, guid: a08d21afa7d2ed74bbb7ccec69b06800, type: 3}
       propertyPath: m_Name
@@ -399,6 +434,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxRobotEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2877265331846161163, guid: 12048027af09b7344bece1ad0f483823, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3198959070692331983, guid: 12048027af09b7344bece1ad0f483823, type: 3}
+      propertyPath: m_navAgent
+      value: 
+      objectReference: {fileID: 1255962499}
+    - target: {fileID: 3198959070692331983, guid: 12048027af09b7344bece1ad0f483823, type: 3}
+      propertyPath: m_path.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3198959070692331983, guid: 12048027af09b7344bece1ad0f483823, type: 3}
+      propertyPath: 'm_path.Array.data[0]'
+      value: 
+      objectReference: {fileID: 199774}
+    - target: {fileID: 3198959070692331983, guid: 12048027af09b7344bece1ad0f483823, type: 3}
+      propertyPath: m_isFollowingCharacter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965736641180556980, guid: 12048027af09b7344bece1ad0f483823, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -461,6 +520,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c5e76e591ab48a42af9adae1af1011f, type: 3}
+--- !u!195 &1255962499 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 8965736641180556980, guid: 12048027af09b7344bece1ad0f483823, type: 3}
+  m_PrefabInstance: {fileID: 864773700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1284844993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -722,6 +786,7 @@ GameObject:
   - component: {fileID: 1693988162}
   - component: {fileID: 1693988161}
   - component: {fileID: 1693988160}
+  - component: {fileID: 1693988164}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -823,6 +888,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1693988164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693988159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.1
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 64e9cab0679eff74da1fbe95f15ce934, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1001 &1898523618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -976,6 +1073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HammerRobotEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 94925166799029217, guid: 8496e8fc8acb3b048b0e5669bccf0857, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4662168586533048468, guid: 8496e8fc8acb3b048b0e5669bccf0857, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.4537404
@@ -1037,3 +1138,4 @@ SceneRoots:
   - {fileID: 1374220263}
   - {fileID: 864773700}
   - {fileID: 2145727196}
+  - {fileID: 199774}

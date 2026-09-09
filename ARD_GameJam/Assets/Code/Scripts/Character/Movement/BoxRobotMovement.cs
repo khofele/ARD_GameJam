@@ -22,7 +22,9 @@ public class BoxRobotMovement : CharMovement
     [SerializeField]
     private float m_minNick = -90f;
     [SerializeField]
-    private float m_degPerSec = 30f;
+    private float m_degPerSecHorz = 40f;
+    [SerializeField]
+    private float m_degPerSecVert = 30f;
 
     [SerializeField] private CharacterController m_characterController = null;
 
@@ -38,7 +40,7 @@ public class BoxRobotMovement : CharMovement
             reverseMod = 1f;
         }
 
-        float horz = reverseMod * m_degPerSec * Time.deltaTime;
+        float horz = reverseMod * m_degPerSecHorz * Time.deltaTime;
 
         if (m_turnLeftInActRef.action.IsPressed() && m_turnRightInActRef.action.IsPressed())
         {
@@ -59,7 +61,7 @@ public class BoxRobotMovement : CharMovement
     {
         Vector2 look = m_lookInActRef.action.ReadValue<Vector2>();
 
-        float vert = look.y * Time.deltaTime * m_degPerSec;
+        float vert = look.y * Time.deltaTime * m_degPerSecVert;
         m_nick -= vert;
         m_nick = Mathf.Clamp(m_nick, m_minNick, m_maxNick);
 

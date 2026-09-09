@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    private const float m_timerDuration = 20.0f; // TODO Balance value
+    private const float m_timerDuration = 120.0f; // TODO Balance value, was 20.0f
     private float m_timerValue = 0.0f;
     private bool m_isTimerRunning = false;
 
@@ -45,7 +45,7 @@ public class Timer : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);//sicherheitshalber entfernt, da sonst endlose reload loops
     }
 
     private void Update()

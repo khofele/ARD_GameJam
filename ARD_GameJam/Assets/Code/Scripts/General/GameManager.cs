@@ -44,8 +44,6 @@ public class GameManager : MonoBehaviour
         ReloadLevel();
     }
 
-
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -76,11 +74,11 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Reloading Scene");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SetGameState(GameStates.RUNNING);
+        SetGameState(GameStates.RUNNING);//
     }
-    private void OnApplicationFocus(bool hasFocus)
-    {
-        if (!hasFocus) Cursor.lockState = CursorLockMode.None;
-        else Cursor.lockState = CursorLockMode.Confined;
-    }
+    //private void OnApplicationFocus(bool hasFocus)
+    //{
+    //    if (!hasFocus) Cursor.lockState = CursorLockMode.None;
+    //    else Cursor.lockState = CursorLockMode.Confined;
+    //}
 }

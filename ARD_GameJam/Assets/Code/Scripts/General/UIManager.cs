@@ -144,22 +144,27 @@ public class UIManager : MonoBehaviour
         m_txtOpenLid.enabled = false;
     }
 
-    private void ShowHackingInputs()
+    private void UpdateHackingTimerVisuals()
     {
         if(HackingManager.Instance.IsHacking == false)
         {
             return;
         }
         //Error nullref
-        m_txtHackingBinding.text = "Press " + HackingManager.Instance.RequiredBinding.BindingInputActionReference.action.name;
+        //m_txtHackingBinding.text = "Press " + HackingManager.Instance.RequiredBinding.BindingInputActionReference.action.name;
         m_txtHackingTimer.text = HackingManager.Instance.HackingTimer.ToString("F3");
+    }
+
+    private void UpdateHackingInputVisuals(QuickTimeBinding requiredBinding)
+    {
+        m_txtHackingBinding.text = "Press " + requiredBinding.BindingInputActionReference.action.name;
     }
 
     private void Update()
     {
         if(m_currentUIState == UIStates.HACKING)
         {
-            ShowHackingInputs();
+            UpdateHackingTimerVisuals();
         }
 
         if (GameManager.Instance.CurrentGameState == GameStates.GAMEOVER)
@@ -172,4 +177,7 @@ public class UIManager : MonoBehaviour
             m_txtTimer.text = Timer.Instance.TimerValue.ToString("F3");
         }
     }
+
+    private void OnEnable() => HackingManager.OnNewQuickTimeBinding += UpdateHackingInputVisuals;
+    private void OnDisable() => HackingManager.OnNewQuickTimeBinding -= UpdateHackingInputVisuals;
 }

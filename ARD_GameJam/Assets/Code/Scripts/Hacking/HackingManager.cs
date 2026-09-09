@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class HackingManager : MonoBehaviour
 {
@@ -27,10 +28,13 @@ public class HackingManager : MonoBehaviour
         get { return m_isHacking; }
     }
 
-    public QuickTimeBinding RequiredBinding
-    {
-        get { return m_requiredBinding; }
-    }
+    //public QuickTimeBinding RequiredBinding
+    //{
+    //    get { return m_requiredBinding; }
+    //}
+
+    public static event Action<QuickTimeBinding> OnNewQuickTimeBinding;
+    public static event Action<bool> OnHackingInputCorrect;
 
     public float HackingTimer
     {
@@ -68,10 +72,10 @@ public class HackingManager : MonoBehaviour
         for(int i = 0; i < _setAmount; i++)
         {
             // choose random set
-            QuickTimeSet chosenSet = m_quickTimeSets[Random.Range(0, m_quickTimeSets.Count)];
+            QuickTimeSet chosenSet = m_quickTimeSets[UnityEngine.Random.Range(0, m_quickTimeSets.Count)];
 
             // define amount of bindings to choose
-            int amountChosenBindings = Random.Range(chosenSet.MinAmountChosenBindings, chosenSet.MaxAmountChosenBindings + 1);
+            int amountChosenBindings = UnityEngine.Random.Range(chosenSet.MinAmountChosenBindings, chosenSet.MaxAmountChosenBindings + 1);
 
             // choose random bindings from set
             for(int j = 0; j < amountChosenBindings; j++)
@@ -81,7 +85,7 @@ public class HackingManager : MonoBehaviour
                     continue;
                 }
 
-                QuickTimeBinding chosenBinding = chosenSet.Bindings[Random.Range(0, chosenSet.Bindings.Count)];
+                QuickTimeBinding chosenBinding = chosenSet.Bindings[UnityEngine.Random.Range(0, chosenSet.Bindings.Count)];
 
                 m_generatedHackingSequence.Add(chosenBinding);
             }
@@ -90,11 +94,15 @@ public class HackingManager : MonoBehaviour
 
     private void StartHackingSequence()
     {
-        int randomAmount = Random.Range(3, 6);
+        int randomAmount = UnityEngine.Random.Range(3, 6);
 
         GenerateHackingSequence(randomAmount);
 
         m_currentBindingIndex = 0;
+
+        m_requiredBinding = m_generatedHackingSequence[m_currentBindingIndex];
+        Debug.Log("Press " + m_requiredBinding.BindingInputActionReference.name);
+        OnNewQuickTimeBinding?.Invoke(m_requiredBinding);
 
         m_hackingTimer = m_hackingTimerDuration;
         m_isHacking = true;
@@ -110,10 +118,6 @@ public class HackingManager : MonoBehaviour
         m_hackingTimer -= Time.deltaTime;
         Debug.Log("Timer " + m_hackingTimer);
 
-        m_requiredBinding = m_generatedHackingSequence[m_currentBindingIndex];
-
-        Debug.Log("Press " + m_requiredBinding.BindingInputActionReference.name);
-
         // check every possible binding and fail if wrong binding was pressed
         foreach(QuickTimeSet quickTimeSet in m_quickTimeSets)
         {
@@ -123,11 +127,15 @@ public class HackingManager : MonoBehaviour
                 {
                     if(quickTimeBinding == m_requiredBinding)
                     {
+                        //correct input
+                        OnHackingInputCorrect?.Invoke(true);
                         OnRequiredBindingPressed();
                         return;
                     }
                     else
                     {
+                        //wrong input
+                        OnHackingInputCorrect?.Invoke(false);
                         Debug.Log("Game Over");
                         GameManager.Instance.SetGameState(GameStates.GAMEOVER);
                         break;
@@ -148,10 +156,17 @@ public class HackingManager : MonoBehaviour
     {
         m_currentBindingIndex++;
 
-        if(m_currentBindingIndex >= m_generatedHackingSequence.Count)
+        if (m_currentBindingIndex >= m_generatedHackingSequence.Count)
         {
             // hacking done
             CharController.Instance.SetCharState(m_currentHackableEnemy.CorrespondingCharState);
+
+            // TODO adjust player position and m_currentHackableEnemy destroy gameObject;
+            Transform enemyTransform = m_currentHackableEnemy.gameObject.transform;
+            Destroy(m_currentHackableEnemy.gameObject);
+            m_currentHackableEnemy = null;
+            CharController.Instance.TakeTransform(enemyTransform);
+
             GameManager.Instance.SetGameState(GameStates.RUNNING);
             m_isHacking = false;
             UIManager.Instance.ChooseUIStateBasedOnCharState();
@@ -159,6 +174,9 @@ public class HackingManager : MonoBehaviour
             return;
         }
 
+        m_requiredBinding = m_generatedHackingSequence[m_currentBindingIndex];
+        Debug.Log("Press " + m_requiredBinding.BindingInputActionReference.name);
+        OnNewQuickTimeBinding?.Invoke(m_requiredBinding);
         m_hackingTimer = m_hackingTimerDuration;
     }
 
@@ -171,7 +189,7 @@ public class HackingManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject); //sicherheitshalber nicht
     }
 
     private void Update()

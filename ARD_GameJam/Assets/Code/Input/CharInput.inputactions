@@ -1049,6 +1049,16 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "WebWindowClick",
+                    "type": "Button",
+                    "id": "3c0feed8-bc85-4d49-a700-84b2399ca3ca",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -1082,6 +1092,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Skippy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba02a7be-3e00-4dc9-bcca-62b38594c7a9",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WebWindowClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d943010-af55-423e-9e2a-d22ab91a8f88",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WebWindowClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
