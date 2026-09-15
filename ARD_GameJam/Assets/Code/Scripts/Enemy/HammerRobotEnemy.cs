@@ -176,7 +176,7 @@ public class HammerRobotEnemy : Enemy
             if (player != null)
             {
                 Debug.Log(player.name);
-                player.TakeDamage(15.0f);
+                player.TakeDamage(14.0f);//was 15
             }
         }
 

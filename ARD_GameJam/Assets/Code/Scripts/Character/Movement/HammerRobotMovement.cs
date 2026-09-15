@@ -98,7 +98,7 @@ public class HammerRobotMovement : CharMovement
 
             if (enemy != null)
             {
-                enemy.TakeDamage(15.0f);
+                enemy.TakeDamage(25.0f);//was 15
             }
         }
     }

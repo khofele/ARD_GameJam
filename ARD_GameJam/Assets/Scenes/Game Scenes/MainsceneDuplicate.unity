@@ -9093,10 +9093,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3273478506326454827, guid: 1175542850e1f4544a2b4a6ff5b6a852, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 9090704023753259858, guid: 1175542850e1f4544a2b4a6ff5b6a852, type: 3}
       propertyPath: m_Name
       value: PauseMenu

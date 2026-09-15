@@ -35,6 +35,7 @@ public class HackingManager : MonoBehaviour
 
     public static event Action<QuickTimeBinding> OnNewQuickTimeBinding;
     public static event Action<bool> OnHackingInputCorrect;
+    public static event Action<CharStates> OnEnemyHacked;
 
     public float HackingTimer
     {
@@ -161,7 +162,7 @@ public class HackingManager : MonoBehaviour
             // hacking done
             CharController.Instance.SetCharState(m_currentHackableEnemy.CorrespondingCharState);
 
-            // TODO adjust player position and m_currentHackableEnemy destroy gameObject;
+            OnEnemyHacked.Invoke(m_currentHackableEnemy.CorrespondingCharState);
             Transform enemyTransform = m_currentHackableEnemy.gameObject.transform;
             Destroy(m_currentHackableEnemy.gameObject);
             m_currentHackableEnemy = null;
