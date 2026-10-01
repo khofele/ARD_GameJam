@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject serviceRobotOverlay;
 
     public GameObject deathscreen;
+    public Image damageScreen = null;
 
     public TextMeshProUGUI m_txtTimer = null;
 
@@ -42,6 +45,7 @@ public class UIManager : MonoBehaviour
     {
         SetUIState(UIStates.NONE);
         deathscreen.SetActive(false);
+        damageScreen.gameObject.SetActive(false);
     }
 
     public void SetUIState(UIStates newUIState)
@@ -142,6 +146,18 @@ public class UIManager : MonoBehaviour
     public void DisableHackingIndicator()
     {
         m_txtOpenLid.enabled = false;
+    }
+
+    public void ShowDamageScreen()
+    {
+        StartCoroutine(FlashRed());
+    }
+
+    private IEnumerator FlashRed()
+    {
+        damageScreen.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.15f);
+        damageScreen.gameObject.SetActive(false);
     }
 
     private void UpdateHackingTimerVisuals()

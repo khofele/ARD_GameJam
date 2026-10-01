@@ -59,6 +59,9 @@ public class CharController : MonoBehaviour
     public void TakeDamage(float _damageValue)
     {
         m_currentHealth -= _damageValue;
+
+        UIManager.Instance.ShowDamageScreen();
+
         Debug.Log(m_currentHealth);
         if (m_currentHealth <= 0.0f)
         {
