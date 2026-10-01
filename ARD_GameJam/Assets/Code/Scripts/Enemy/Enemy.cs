@@ -25,6 +25,7 @@ public abstract class Enemy : MonoBehaviour
     public void TakeDamage(float _damageValue)
     {
         m_currentHealth -= _damageValue;
+        Debug.Log("damadge dealt" + _damageValue + "new health" + m_currentHealth);
 
         if(m_currentHealth <= 0.0f)
         {
