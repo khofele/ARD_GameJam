@@ -42024,6 +42024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6677121383640838170, guid: 9302b1c6895e2f84fbc523dcee808cb1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1142564b73cd9e241aca00b10544aa7e, type: 3}
     - target: {fileID: 6733365098258586253, guid: 9302b1c6895e2f84fbc523dcee808cb1, type: 3}
       propertyPath: m_Color.a
       value: 1
