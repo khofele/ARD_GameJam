@@ -99,7 +99,7 @@ public class HammerRobotMovement : CharMovement
             if (enemy != null)
             {
                 enemy.TakeDamage(25.0f);//was 15
-                Debug.Log("dealt demage to enemy");
+                Debug.Log("dealt damage to enemy");
             }
         }
     }
