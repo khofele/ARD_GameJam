@@ -7387,6 +7387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96427242c3dea5946b38d64e9d16d498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharController
+  m_currentHealth: 0
   m_playerInput: {fileID: 5396457462054261499}
   m_humanMovement: {fileID: 7658946050083980323}
   m_boxRobotMovement: {fileID: 2401155735610145218}
@@ -7488,7 +7489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HammerRobotMovement
   m_enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &5042960703540329607
 MonoBehaviour:
   m_ObjectHideFlags: 0
