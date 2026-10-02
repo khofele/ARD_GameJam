@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class WebBuildMousePointerManager : MonoBehaviour
 {
-    [SerializeField] private InputActionReference m_clickInActRef;
-    public static WebBuildMousePointerManager Instance {  get; private set; }
+    //[SerializeField] private InputActionReference m_clickInActRef;
+    public static WebBuildMousePointerManager Instance { get; private set; }
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -15,15 +15,24 @@ public class WebBuildMousePointerManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    private void OnEnable()
+
+    private void Update()
     {
-        m_clickInActRef.action.performed += OnScreenClicked;
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            OnScreenClicked();
+        }
     }
-    private void OnDisable()
-    {
-        m_clickInActRef.action.performed -= OnScreenClicked;
-    }
-    private void OnScreenClicked(InputAction.CallbackContext context)
+
+    //private void OnEnable()
+    //{
+    //    m_clickInActRef.action.performed += OnScreenClicked;
+    //}
+    //private void OnDisable()
+    //{
+    //    m_clickInActRef.action.performed -= OnScreenClicked;
+    //}
+    private void OnScreenClicked()//InputAction.CallbackContext context)
     {
         if (GameManager.Instance.CurrentGameState == GameStates.RUNNING)
         {
@@ -32,14 +41,14 @@ public class WebBuildMousePointerManager : MonoBehaviour
         }
         else
         {
-            Cursor.lockState= CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;//was confined
             Cursor.visible = true;
         }
     }
     private void OnApplicationFocus(bool hasFocus)
     {
-        if (!hasFocus) 
-        { 
+        if (!hasFocus)
+        {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

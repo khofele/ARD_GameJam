@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private GameStates m_currentGameState = GameStates.RUNNING;
+    [SerializeField] private GameStates m_currentGameState = GameStates.PAUSED;//was RUNNING
 
     public GameStates CurrentGameState 
     { 
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         case GameStates.PAUSED:
                 Time.timeScale = 0f; Cursor.visible = true; break;
         case GameStates.HACKING:
-                Cursor.visible = true; break;
+                Cursor.visible = false; break;
         case GameStates.GAMEOVER:
                 StartCoroutine(GameOver());
                 break;
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        SetGameState(GameStates.PAUSED);
     }
 
     public void LoadLevel(int i)
